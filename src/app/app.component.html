@@ -1,5 +1,11 @@
-<form>
+<form #emailForm="ngForm">
   <input name="email" [(ngModel)]="email" />
-
-  {{ email }}
 </form>
+
+<hr />
+
+<div>Is form valid:{{ emailForm.valid }}</div>
+<div>Form values:{{ emailForm.value | json }}</div>
+<div *ngIf="emailForm.controls.email">
+  Email validation errors: {{ emailForm.controls.email.errors | json }}
+</div>
